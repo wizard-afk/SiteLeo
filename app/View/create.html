@@ -1,0 +1,111 @@
+<div id="create-container">
+    <div id="create-box">
+        <h1>Criar Publicação</h1>
+        <form method="post" action="?pagina=admin&metodo=insert">
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" id="titulo" placeholder="Digite o título" required>
+
+            <label for="conteudo">Conteúdo</label>
+            <textarea name="conteudo" id="conteudo" rows="10" placeholder="Digite o conteúdo" required></textarea>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Container principal */
+    #create-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Tela inteira */
+        background: linear-gradient(to right, #a6c7f0, #84baf5, #699afd); /* Gradiente */
+        padding: 20px; /* Para evitar corte em telas menores */
+    }
+
+    /* Caixa do formulário */
+    #create-box {
+        background-color: #eaeaea; /* Fundo cinza claro */
+        border-radius: 10px;
+        padding: 30px 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 500px; /* Largura máxima ajustada */
+        width: 100%; /* Faz com que o formulário se ajuste ao tamanho da tela */
+        text-align: center;
+    }
+
+    /* Título */
+    #create-box h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        color: #4e2a84; /* Roxo escuro */
+        margin-bottom: 20px;
+    }
+
+    /* Rótulos */
+    #create-box label {
+        display: block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: #4e2a84; /* Roxo escuro */
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    /* Campos de texto e área de texto */
+    #create-box input, #create-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: #4e2a84; /* Roxo escuro */
+        background-color: #f9f9f9; /* Fundo claro */
+    }
+
+    #create-box input:focus, #create-box textarea:focus {
+        outline: none;
+        border-color: #4e2a84; /* Roxo escuro no foco */
+        box-shadow: 0 0 5px rgba(78, 42, 132, 0.5);
+    }
+
+    /* Botão de envio */
+    #create-box button {
+        width: 100%; /* Botão ocupa a largura total */
+        padding: 10px;
+        background-color: #4e2a84; /* Roxo escuro */
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #create-box button:hover {
+        background-color: #7f3c98; /* Roxo mais claro */
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        #create-box {
+            padding: 20px; /* Ajusta o padding para telas menores */
+        }
+
+        #create-box h1 {
+            font-size: 24px;
+        }
+
+        #create-box input, #create-box textarea {
+            font-size: 12px; /* Reduz o tamanho dos textos em telas menores */
+        }
+
+        #create-box button {
+            font-size: 14px; /* Ajusta o botão */
+        }
+    }
+</style>

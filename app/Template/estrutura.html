@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <!-- Importando fontes do Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        
+        <style type="text/css">
+            /* Resetando margens e paddings */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Definindo a fonte padrão */
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background: linear-gradient(to right, #a6c7f0, #84baf5, #699afd); /* Gradiente azul claro */
+                color: #000000; /* Cor padrão para o texto */
+                line-height: 1.6;
+            }
+
+            /* Estilo do corpo */
+            #corpo {
+                max-width: 1200px;
+                margin: -50px auto;
+                padding: 20px;
+            }
+
+            /* Topo do site */
+            #topo {
+                padding: 20px 40px;
+                border-bottom: 4px solid #000000;
+                text-align: center;
+                background-color: #cbcac9; /* Cor da caixa */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 75px; /* Tamanho total de 75px */
+                z-index: 999;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            /* Div que envolve a imagem e cria a borda */
+            #imagem-container {
+                width: 50px; /* Tamanho da imagem */
+                height: 50px; /* Altura da imagem */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Imagem fixa à esquerda */
+            #imagem-container img {
+                width: 40px; /* Ajuste do tamanho da imagem */
+                height: auto;
+            }
+
+            /* Estilo dos links do topo */
+            #topo a {
+                color: #4e2a84; /* Roxo escuro */
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: bold;
+                margin: 0 15px;
+            }
+
+            #topo a:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            /* Conteúdo */
+            #conteudo {
+                background-color: #eaeaea; /* Cinza claro */
+                color: #4e2a84; /* Roxo escuro */
+                padding: 30px;
+                border-radius: 8px;
+                margin-top: 120px; /* Garante que o conteúdo não sobreponha a imagem fixa */
+            }
+
+            #conteudo h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 36px;
+                color: #4e2a84; /* Roxo escuro */
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            /* Estilo para artigos */
+            #conteudo article {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #4e2a84; /* Roxo escuro para a borda */
+            }
+
+            article h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 28px;
+                color: #4e2a84; /* Roxo escuro */
+                margin-bottom: 10px;
+            }
+
+            article h2 a {
+                color: #4e2a84; /* Roxo escuro */
+                text-decoration: none;
+            }
+
+            article h2 a:hover {
+                text-decoration: underline;
+            }
+
+            article p {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 18px;
+                color: #4e2a84; /* Roxo escuro */
+                line-height: 1.8;
+            }
+
+            /* Estilo para a navegação */
+            nav {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            /* Estilo de link flutuante */
+            .flutuacao-dir {
+                margin-left: auto;
+            }
+
+            /* Estilo para a responsividade */
+            @media (max-width: 768px) {
+                #corpo {
+                    width: 90%;
+                    padding: 15px;
+                }
+
+                #topo {
+                    padding: 15px;
+                }
+
+                #conteudo {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="corpo">
+            <div id="topo">
+                <!-- Div para a imagem e a borda -->
+                <div id="imagem-container">
+                    <img src="imagens/imagem.png" alt="Logo do Site">
+                </div>
+                <header>
+                    <nav>
+                        <!-- <a href="http://localhost/siteleo/">Home</a>
+                        <a href="http://localhost/siteleo/?pagina=sobre">Sobre</a>
+                        <a href="http://localhost/siteleo/?pagina=login&metodo=index">Login</a> 
+                        <a href="http://localhost/siteleo/?pagina=admin&metodo=index" class="flutuacao-dir">Admin</a> -->
+                        <a href="http://localhost/siteleo/">Home</a>
+                        <a href="http://localhost/siteleo/?pagina=sobre">Sobre</a>
+
+                    
+                        {% if usuario.tipo == 'admin' %}
+                            <a href="http://localhost/siteleo/?pagina=manual&metodo=index">Manuais</a>
+                            <a href="http://localhost/siteleo/?pagina=admin&metodo=index"> Criar novo</a>
+                        {% elseif usuario.tipo == 'usuario' %}
+                            <a href="http://localhost/siteleo/?pagina=manual&metodo=index">Manuais</a>
+                        {% endif %}
+                    
+                        {% if usuario %}
+                            <a href="http://localhost/siteleo/?pagina=login&metodo=logout" class="flutuacao-dir">Logout</a>
+                        {% else %}
+                            <a href="http://localhost/siteleo/?pagina=login&metodo=index" class="flutuacao-dir">Login</a>
+                        {% endif %}
+                            
+                    </nav>
+                </header>
+            </div>
+
+            <div id="conteudo">
+                {{area_dinamica}}
+            </div>
+        </div>
+    </body>
+</html>

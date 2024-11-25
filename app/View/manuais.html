@@ -1,0 +1,70 @@
+<section>
+    <h1>Manuais:</h1>
+
+    {% for manual in manuais %}
+        <article>
+            <header>
+                <h2><a href="http://localhost/siteleo/?pagina=manual&metodo=visualizar&id={{manual.id}}">{{manual.titulo}}</a></h2>
+            </header>
+        </article>
+    {% endfor %}
+</section>
+
+
+<style>
+    /* Estilo do título principal */
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        color: #4e2a84;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Estilo geral do artigo */
+    article {
+        margin: 10px auto;
+        padding: 15px;
+        width: 70%;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    article:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    header h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    header h2 a {
+        text-decoration: none;
+        color: #4e2a84;
+    }
+
+    header h2 a:hover {
+        text-decoration: underline;
+        color: #7f3c98;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        article {
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        header h2 {
+            font-size: 20px;
+        }
+    }
+</style>

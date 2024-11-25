@@ -1,0 +1,109 @@
+<h1>Gerenciador de Conteúdo</h1>
+
+<!-- Botões alinhados -->
+<div class="botao-container">
+    <a href="http://localhost/siteleo/?pagina=admin&metodo=create" class="botao-criar">Criar Publicação</a>
+    <a href="http://localhost/siteleo/?pagina=admin&metodo=createManual" class="botao-criar">Criar Manual</a>
+    <a href="http://localhost/siteleo/?pagina=admin&metodo=createUser" class="botao-criar">Cadastrar Usuário</a>
+</div>
+
+<style>
+    .botao-container {
+        display: flex;
+        gap: 20px; /* Espaçamento entre os botões */
+        margin-bottom: 20px;
+    }
+
+    .botao-criar {
+        background-color: #4e2a84; /* Cor roxa para o botão */
+        color: white; /* Texto branco */
+        padding: 12px 20px; /* Espaçamento interno */
+        text-decoration: none; /* Remove o sublinhado */
+        border-radius: 5px; /* Bordas arredondadas */
+        font-family: 'Open Sans', sans-serif; /* Fonte mais legível */
+        font-size: 16px; /* Tamanho da fonte */
+        font-weight: bold; /* Texto em negrito */
+        flex: 1; /* Faz os botões ocuparem o mesmo espaço */
+        text-align: center; /* Centraliza o texto */
+        transition: background-color 0.3s; /* Efeito de transição ao passar o mouse */
+    }
+
+    .botao-criar:hover {
+        background-color: #7f3c98; /* Cor roxa mais clara ao passar o mouse */
+    }
+</style>
+
+<hr>
+<br>
+
+<!-- Tabela de Publicações -->
+<h2>Publicações</h2>
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #4e2a84;">
+    <tr style="background-color: #f4f4f4;">
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">ID</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">TÍTULO</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">ALTERAÇÃO</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">DELEÇÃO</th>
+    </tr>
+
+    {% for postagem in postagens %}
+    <tr style="background-color: #fff;">
+        <td style="padding: 12px; border: 1px solid #ccc;">{{postagem.id}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc;">{{postagem.titulo}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc; text-align: center;">
+            <a href="http://localhost/siteleo/?pagina=admin&metodo=change&id={{postagem.id}}" style="color: #4e2a84;">ALTERAR</a>
+        </td>
+        <td style="padding: 12px; border: 1px solid #ccc; text-align: center;">
+            <a href="http://localhost/siteleo/?pagina=admin&metodo=delete&id={{postagem.id}}" style="color: #4e2a84;">DELETAR</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br><hr><br>
+
+<!-- Tabela de Manuais -->
+<h2>Manuais</h2>
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #4e2a84;">
+    <tr style="background-color: #f4f4f4;">
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">ID</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">TÍTULO</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">ALTERAÇÃO</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">DELEÇÃO</th>
+    </tr>
+
+    {% for manual in manuais %}
+    <tr style="background-color: #fff;">
+        <td style="padding: 12px; border: 1px solid #ccc;">{{manual.id}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc;">{{manual.titulo}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc; text-align: center;">
+            <a href="http://localhost/siteleo/?pagina=admin&metodo=changeManual&id={{manual.id}}" style="color: #4e2a84;">ALTERAR</a>
+        </td>
+        <td style="padding: 12px; border: 1px solid #ccc; text-align: center;">
+            <a href="http://localhost/siteleo/?pagina=admin&metodo=deleteManual&id={{manual.id}}" style="color: #4e2a84;">DELETAR</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br><hr><br>
+
+<!-- Tabela de Usuários -->
+<h2>Usuários Cadastrados</h2>
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #4e2a84;">
+    <tr style="background-color: #f4f4f4;">
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">ID</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">E-MAIL</th>
+        <th style="padding: 12px; border: 1px solid #ccc; text-align: left;">TIPO</th>
+    </tr>
+
+    {% for usuario in usuarios %}
+    <tr style="background-color: #fff;">
+        <td style="padding: 12px; border: 1px solid #ccc;">{{usuario.id}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc;">{{usuario.email}}</td>
+        <td style="padding: 12px; border: 1px solid #ccc; text-transform: capitalize;">{{usuario.tipo}}</td>
+    </tr>
+    {% endfor %}
+</table> 
+
+

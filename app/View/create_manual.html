@@ -1,0 +1,91 @@
+<div id="manual-container">
+    <div id="manual-box">
+        <h1>Criar Manual</h1>
+        <form method="post" action="http://localhost/siteleo/?pagina=admin&metodo=insertManual">
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" id="titulo" placeholder="Digite o título" required>
+            
+            <label for="conteudo">Conteúdo</label>
+            <textarea name="conteudo" id="conteudo" rows="10" placeholder="Digite o conteúdo" required></textarea>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Container principal */
+    #manual-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Tela inteira */
+        background: linear-gradient(to right, #a6c7f0, #84baf5, #699afd); /* Gradiente */
+    }
+
+    /* Caixa do formulário */
+    #manual-box {
+        background-color: #eaeaea; /* Fundo cinza claro */
+        border-radius: 10px;
+        padding: 30px 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    /* Título */
+    #manual-box h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        color: #4e2a84; /* Roxo escuro */
+        margin-bottom: 20px;
+    }
+
+    /* Rótulos */
+    #manual-box label {
+        display: block;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: #4e2a84; /* Roxo escuro */
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    /* Inputs e Textarea */
+    #manual-box input, #manual-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color: #4e2a84; /* Roxo escuro */
+        background-color: #f9f9f9; /* Fundo claro */
+    }
+
+    #manual-box input:focus, #manual-box textarea:focus {
+        outline: none;
+        border-color: #4e2a84; /* Roxo escuro no foco */
+        box-shadow: 0 0 5px rgba(78, 42, 132, 0.5);
+    }
+
+    /* Botão */
+    #manual-box button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4e2a84; /* Roxo escuro */
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #manual-box button:hover {
+        background-color: #7f3c98; /* Roxo mais claro */
+    }
+</style>
